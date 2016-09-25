@@ -1,9 +1,3 @@
-# built application files
-*.ap_
-
-# files for the dex VM
-*.dex
-
 # Java class files
 *.class
 
@@ -11,6 +5,7 @@
 bin/
 gen/
 build/
+target/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -21,4 +16,4 @@ local.properties
 
 # IDEA project files
 .idea/
-*.iml
+*.imls
