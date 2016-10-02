@@ -3,12 +3,12 @@ package com.tsystems.efimova.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="itemfeature")
+@Table(name = "itemfeature")
 public class ItemFeatureEntity {
 
     @Id
     @Column(name = "itfid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long itfid;
 
     @OneToOne
@@ -21,6 +21,8 @@ public class ItemFeatureEntity {
 
     @Column(name = "value", length = 50)
     private String value;
+
+    public ItemFeatureEntity() {}
 
     public ItemFeatureEntity(ItemEntity item, FeatureEntity feature, String value) {
         this.item = item;

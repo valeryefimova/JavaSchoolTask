@@ -8,7 +8,7 @@ public class ClientAdressEntity {
 
     @Id
     @Column(name = "aid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long aid;
 
     @Column(name = "country", nullable = false, length = 50)
@@ -28,6 +28,8 @@ public class ClientAdressEntity {
 
     @Column(name = "flat", nullable = false)
     private int fleat;
+
+    public ClientAdressEntity() {}
 
     public ClientAdressEntity(String country, String city, String postcode, String street, int house, int fleat) {
         this.country = country;

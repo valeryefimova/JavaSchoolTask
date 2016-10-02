@@ -7,12 +7,14 @@ import javax.persistence.*;
 public class CategoryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cid")
     private long cid;
 
     @Column(name = "cname", nullable = false, length = 50)
     private String cname;
+
+    public CategoryEntity() {}
 
     public CategoryEntity(String cname) {
         this.cname = cname;

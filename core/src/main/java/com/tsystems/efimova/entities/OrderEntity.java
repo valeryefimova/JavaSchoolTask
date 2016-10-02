@@ -9,20 +9,20 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Order")
+@Table(name = "Order")
 public class OrderEntity {
 
     @Id
     @Column(name = "oid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long oid;
 
     @OneToOne
-    @JoinColumn(name = "clid")
+    @JoinColumn(name = "clid", referencedColumnName = "clid")
     private ClientEntity client;
 
     @OneToOne
-    @JoinColumn(name = "aid")
+    @JoinColumn(name = "aid", referencedColumnName = "aid")
     private ClientAdressEntity adress;
 
     @Column(name = "paymethod")
@@ -42,6 +42,8 @@ public class OrderEntity {
 
     @OneToMany(mappedBy = "itid")
     private List<ItemEntity> items;
+
+    public OrderEntity() {}
 
     public OrderEntity(ClientEntity client, ClientAdressEntity adress, PaymentMethod payMethod, DeliveryMethod delMethod, PaymentStatus payStatus, OrderStatus orderStatus, String paymentInfo, List<ItemEntity> items) {
         this.client = client;

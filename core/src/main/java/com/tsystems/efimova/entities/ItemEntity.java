@@ -4,16 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Item")
+@Table(name = "Item")
 public class ItemEntity {
 
     @Id
     @Column(name = "itid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long itid;
 
     @OneToOne
-    @JoinColumn(name = "cid", nullable = false)
+    @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false)
     private CategoryEntity category;
 
     @Column(name = "itname", nullable = false, length = 50)
@@ -39,6 +39,8 @@ public class ItemEntity {
 
     @OneToMany(mappedBy = "itfid")
     private List<ItemFeatureEntity> features;
+
+    public ItemEntity() {}
 
     public ItemEntity(CategoryEntity category, String itname, float price, float weight, float volum, long instock, String description, List<ItemFeatureEntity> features) {
         this.category = category;

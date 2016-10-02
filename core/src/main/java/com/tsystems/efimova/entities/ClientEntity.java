@@ -9,7 +9,7 @@ public class ClientEntity {
 
     @Id
     @Column(name = "clid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long clid;
 
     @Column(name = "clname", nullable = false, length = 50)
@@ -29,6 +29,8 @@ public class ClientEntity {
 
     @Column(name = "staff", nullable = false)
     private boolean staff;
+
+    public ClientEntity() {}
 
     public ClientEntity(String clname, String surname, Date birthdate, String email, String password, boolean staff) {
         this.clname = clname;
