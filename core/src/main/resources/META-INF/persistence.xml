@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="shop">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.tsystems.efimova.entities.ItemEntity</class>
+        <class>com.tsystems.efimova.entities.FeatureEntity</class>
+        <class>com.tsystems.efimova.entities.ItemFeatureEntity</class>
+        <class>com.tsystems.efimova.entities.CategoryEntity</class>
+        <class>com.tsystems.efimova.entities.ClientAdressEntity</class>
+        <class>com.tsystems.efimova.entities.ClientEntity</class>
+        <class>com.tsystems.efimova.entities.OrderEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/shop"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="1"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+            <property name="connection_pool_size" value="10"/>
+            <property name="hbm2ddl.auto" value="create"/>
+            <property name="show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
